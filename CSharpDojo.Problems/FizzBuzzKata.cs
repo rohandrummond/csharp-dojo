@@ -13,7 +13,19 @@ public static class FizzBuzzKata
     /// </summary>
     public static string FizzBuzz(int number)
     {
-        throw new NotImplementedException();
+        if (number % 3 == 0 && number % 5 ==0)
+        {
+            return "FizzBuzz";
+        }
+        if (number % 3 == 0)
+        {
+            return "Fizz";
+        }
+        if (number % 5 == 0)
+        {
+            return "Buzz";
+        }
+        return number.ToString();
     }
 
     /// <summary>
@@ -22,6 +34,11 @@ public static class FizzBuzzKata
     /// </summary>
     public static List<string> FizzBuzzRange(int n)
     {
-        throw new NotImplementedException();
+        List<string> results = new List<string>();
+        for (int i = 1; i <= n; i++)
+        {
+            results.Add(FizzBuzz(i));
+        }
+        return results;
     }
 }
