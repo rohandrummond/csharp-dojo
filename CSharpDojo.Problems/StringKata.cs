@@ -1,4 +1,5 @@
 using System.Reflection.PortableExecutable;
+using System.Text;
 
 namespace CSharpDojo.Problems;
 
@@ -77,6 +78,19 @@ public static class StringKata
     /// </summary>
     public static string ToTitleCase(string input)
     {
-        throw new NotImplementedException();
+        if (input.Length == 0)
+        {
+            return input;
+        }
+        StringBuilder sb = new StringBuilder(input.ToLower());
+        sb[0] = char.ToUpper(sb[0]);
+        for (int i = 1; i < input.Length; i++)
+        {
+            if (sb[i - 1] == ' ')
+            {
+                sb[i] = char.ToUpper(sb[i]);
+            }
+        }
+        return sb.ToString();
     }
 }
