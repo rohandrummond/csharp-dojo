@@ -10,7 +10,18 @@ public static class StringKata
     /// </summary>
     public static string Reverse(string input)
     {
-        throw new NotImplementedException();
+        char[] chars = input.ToCharArray();
+        int l = 0;
+        int r = chars.Length - 1;
+        while (l < r)
+        {
+            char t = chars[l];
+            chars[l] = chars[r];
+            chars[r] = t;
+            l++;
+            r--;
+        }
+        return new string(chars);
     }
 
     /// <summary>
