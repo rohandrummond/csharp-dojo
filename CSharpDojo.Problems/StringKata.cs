@@ -20,7 +20,22 @@ public static class StringKata
     /// </summary>
     public static int CountVowels(string input)
     {
-        throw new NotImplementedException();
+        int count = 0;
+        for (int i = 0; i < input.Length; i++)
+        {
+            char c = char.ToLower(input[i]);
+            switch (c)
+            {
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
+                    count++;
+                    break;
+            }
+        }
+        return count;
     }
 
     /// <summary>
