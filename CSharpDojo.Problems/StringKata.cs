@@ -56,7 +56,19 @@ public static class StringKata
     /// </summary>
     public static bool IsPalindrome(string input)
     {
-        throw new NotImplementedException();
+        string normal = input.Replace(" ", "").ToLower();
+        int l = 0;
+        int r = normal.Length - 1;
+        while (l < r)
+        {
+            if (normal[l] != normal[r])
+            {
+                return false;
+            }
+            l++;
+            r--;
+        }
+        return true;
     }
 
     /// <summary>
