@@ -1,3 +1,6 @@
+using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
+
 namespace CSharpDojo.Problems;
 
 /// <summary>
@@ -13,7 +16,15 @@ public static class MathKata
     /// </summary>
     public static long Factorial(int n)
     {
-        throw new NotImplementedException();
+        if (n < 0)
+        {
+            throw new ArgumentException("Argument must be a positive number");
+        }
+        if (n <= 1)
+        {
+            return 1;
+        }
+        return n * Factorial(n - 1);
     }
 
     /// <summary>
