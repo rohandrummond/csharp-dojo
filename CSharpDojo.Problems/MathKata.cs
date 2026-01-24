@@ -14,6 +14,8 @@ public static class MathKata
     /// Example: 5 -> 120 (5 * 4 * 3 * 2 * 1)
     /// Throws ArgumentException for negative numbers.
     /// </summary>
+    
+    // Recursive implementation
     public static long Factorial(int n)
     {
         if (n < 0)
@@ -32,9 +34,44 @@ public static class MathKata
     /// Sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21...
     /// Example: Fibonacci(6) -> 8
     /// </summary>
+    
+    // List + for loop implementation
+    public static long FibonacciListAndLoop(int n)
+    {
+        List<int> f = new List<int>();
+        for (int i = 0; i <= n; i++)
+        {
+            if (i == 0 || i == 1)
+            {
+                f.Add(i);
+                continue;
+            }
+            f.Add(f[i - 1] + f[i - 2]);
+        } 
+        return f[n];
+    }
+
+    // Two pointer implementation
     public static long Fibonacci(int n)
     {
-        throw new NotImplementedException();
+        if (n == 0)
+        {
+            return 0;
+        }
+        if (n == 1)
+        {
+            return 1;
+        }
+        int f = 0;
+        int s = 1;
+        int r = 0;
+        for (int i = 2; i <= n; i++)
+        {
+            r = f + s;
+            f = s;
+            s = r;
+        }
+        return r;
     }
 
     /// <summary>
