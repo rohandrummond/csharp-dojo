@@ -80,7 +80,18 @@ public static class MathKata
     /// </summary>
     public static bool IsPrime(int number)
     {
-        throw new NotImplementedException();
+        if (number <= 1)
+        {
+            return false;
+        }
+        for (int i = 2; i * i <= number; i++)
+        {
+            if (number % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     /// <summary>
