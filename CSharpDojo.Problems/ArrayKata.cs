@@ -32,9 +32,26 @@ public static class ArrayKata
     /// Returns a new array with duplicates removed, preserving order.
     /// Example: [1, 2, 2, 3, 1, 4] -> [1, 2, 3, 4]
     /// </summary>
+    
+    // Basic implementation using .Disctint()
+    // public static int[] RemoveDuplicates(int[] numbers)
+    // {
+    //     return numbers.Distinct().ToArray();
+    // }
+
+    // More efficient implementation using HashSet
     public static int[] RemoveDuplicates(int[] numbers)
     {
-        throw new NotImplementedException();
+        HashSet<int> seen = new HashSet<int>();
+        List<int> result = new List<int>();
+        foreach (int number in numbers)
+        {
+            if (seen.Add(number))
+            {
+                result.Add(number);
+            }
+        }
+        return result.ToArray();
     }
 
     /// <summary>
