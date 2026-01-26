@@ -13,7 +13,19 @@ public static class ArrayKata
     /// </summary>
     public static int FindMax(int[] numbers)
     {
-        throw new NotImplementedException();
+        if (numbers.Length == 0)
+        {
+            throw new ArgumentException("arg array can't be empty");
+        }
+        int max = numbers[0];
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] > max)
+            {
+                max = numbers[i];
+            }
+        }
+        return max;
     }
 
     /// <summary>
