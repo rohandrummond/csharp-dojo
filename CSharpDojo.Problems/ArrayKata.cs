@@ -76,8 +76,19 @@ public static class ArrayKata
     /// Returns null if no solution exists.
     /// Example: [2, 7, 11, 15] with target 9 -> [0, 1] (because 2 + 7 = 9)
     /// </summary>
+     
+    // Calculate complement needed and check with Array.IndexOf
     public static int[]? TwoSum(int[] numbers, int target)
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            int needed = target - numbers[i];
+            int found = Array.IndexOf(numbers, needed);
+            if (found != -1)
+            {
+                return [i, found];
+            }
+        }
+        return null;
     }
 }
