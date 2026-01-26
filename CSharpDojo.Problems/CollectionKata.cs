@@ -90,8 +90,26 @@ public static class CollectionKata
     /// Returns elements that appear in both collections.
     /// Example: [1, 2, 3, 4] and [3, 4, 5, 6] -> [3, 4]
     /// </summary>
+     
+    // Basic implementation (good memory but bad time complexity due to Contains being linear search)
+    // public static List<T> Intersection<T>(IEnumerable<T> first, IEnumerable<T> second)
+    // {
+    //     List<T> result = new();
+    //     foreach (T item in first)
+    //     {
+    //         if (second.Contains(item))
+    //         {
+    //             result.Add(item);
+    //         }
+    //     }
+    //     return result;
+    // }
+
+    // HashSet IntersectWith implementation (better time complexity due to HashSet being a hash table, but worse memory)
     public static List<T> Intersection<T>(IEnumerable<T> first, IEnumerable<T> second)
     {
-        throw new NotImplementedException();
+        HashSet<T> result = new(first);
+        result.IntersectWith(second);
+        return result.ToList();
     }
 }
