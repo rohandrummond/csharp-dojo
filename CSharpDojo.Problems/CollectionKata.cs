@@ -38,7 +38,25 @@ public static class CollectionKata
     /// </summary>
     public static T MostFrequent<T>(IEnumerable<T> items) where T : notnull
     {
-        throw new NotImplementedException();
+        if (items == null || !items.Any())
+        {
+            throw new ArgumentException("items cannot be empty");
+        }
+        Dictionary<T, int> counts = new();
+        T mostFrequent = default!;
+        int maxCount = 0;
+        foreach (T item in items)
+        {
+            counts.TryGetValue(item, out int count);
+            count++;
+            counts[item] = count;
+            if (count > maxCount)
+            {
+                mostFrequent = item;
+                maxCount = count;
+            }
+        }
+        return mostFrequent;
     }
 
     /// <summary>
