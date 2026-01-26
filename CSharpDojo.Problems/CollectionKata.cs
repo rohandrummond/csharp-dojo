@@ -13,7 +13,21 @@ public static class CollectionKata
     /// </summary>
     public static Dictionary<char, List<string>> GroupByFirstLetter(IEnumerable<string> words)
     {
-        throw new NotImplementedException();
+        Dictionary<char, List<string>> groups = new();
+        foreach (string word in words)
+        {
+            if (!string.IsNullOrEmpty(word))
+            {
+                char letter = char.ToUpper(word[0]);
+                if (!groups.TryGetValue(letter, out List<string>? wordList))
+                {
+                    wordList = new List<string>();
+                    groups[letter] = wordList;
+                }
+                wordList.Add(word);        
+            }
+        }
+        return groups;
     }
 
     /// <summary>
