@@ -58,9 +58,17 @@ public static class ArrayKata
     /// Rotates array elements to the left by n positions.
     /// Example: [1, 2, 3, 4, 5] rotated by 2 -> [3, 4, 5, 1, 2]
     /// </summary>
+    
+    // Split array at position and then swap 
     public static int[] RotateLeft(int[] numbers, int positions)
     {
-        throw new NotImplementedException();
+        if (positions == numbers.Length)
+        {
+            return numbers;
+        }
+        int[] first = numbers[..positions];
+        int[] second = numbers[positions..];
+        return second.Concat(first).ToArray();
     }
 
     /// <summary>
