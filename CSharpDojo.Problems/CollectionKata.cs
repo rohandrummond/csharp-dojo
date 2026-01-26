@@ -1,3 +1,5 @@
+using System.IO.Pipelines;
+
 namespace CSharpDojo.Problems;
 
 /// <summary>
@@ -63,9 +65,25 @@ public static class CollectionKata
     /// Flattens a nested list into a single list.
     /// Example: [[1, 2], [3, 4], [5]] -> [1, 2, 3, 4, 5]
     /// </summary>
+    
+    // LINQ SelectMany approach
+    // public static List<T> Flatten<T>(IEnumerable<IEnumerable<T>> nested)
+    // {
+    //     return nested.SelectMany(i => i).ToList();
+    // }
+
+    // Nested foreach approach (most performant)
     public static List<T> Flatten<T>(IEnumerable<IEnumerable<T>> nested)
     {
-        throw new NotImplementedException();
+        List<T> result = new();
+        foreach (IEnumerable<T> list in nested)
+        {
+            foreach (T item in list)
+            {
+                result.Add(item);
+            }
+        }
+        return result;
     }
 
     /// <summary>
