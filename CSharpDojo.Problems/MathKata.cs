@@ -98,8 +98,14 @@ public static class MathKata
     /// Returns the greatest common divisor of two numbers.
     /// Example: GCD(48, 18) -> 6
     /// </summary>
+     
+    // Recursive implementation of Euclidean algorithm
     public static int GCD(int a, int b)
     {
-        throw new NotImplementedException();
+        if (b == 0)
+        {
+            return a;
+        }
+        return GCD(b, a % b);
     }
 }
