@@ -87,4 +87,113 @@ public class ArrayKataTests
         var numbers = new[] { -3, 4, 3, 90 };
         Assert.Equal(0, numbers[result[0]] + numbers[result[1]]);
     }
+
+    // MaxSubarraySum tests
+    [Theory]
+    [InlineData(new[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }, 6)]
+    [InlineData(new[] { 1 }, 1)]
+    [InlineData(new[] { 5, 4, -1, 7, 8 }, 23)]
+    [InlineData(new[] { -3, -2, -1 }, -1)]
+    public void MaxSubarraySum_ShouldFindMaxSum(int[] numbers, int expected)
+    {
+        Assert.Equal(expected, ArrayKata.MaxSubarraySum(numbers));
+    }
+
+    [Fact]
+    public void MaxSubarraySum_ShouldThrowForEmptyArray()
+    {
+        Assert.Throws<ArgumentException>(() => ArrayKata.MaxSubarraySum(Array.Empty<int>()));
+    }
+
+    // MoveZeroes tests
+    [Fact]
+    public void MoveZeroes_ShouldMoveZeroesInPlace()
+    {
+        var numbers = new[] { 0, 1, 0, 3, 12 };
+        ArrayKata.MoveZeroes(numbers);
+        Assert.Equal(new[] { 1, 3, 12, 0, 0 }, numbers);
+    }
+
+    [Fact]
+    public void MoveZeroes_ShouldHandleNoZeroes()
+    {
+        var numbers = new[] { 1, 2, 3 };
+        ArrayKata.MoveZeroes(numbers);
+        Assert.Equal(new[] { 1, 2, 3 }, numbers);
+    }
+
+    [Fact]
+    public void MoveZeroes_ShouldHandleAllZeroes()
+    {
+        var numbers = new[] { 0, 0, 0 };
+        ArrayKata.MoveZeroes(numbers);
+        Assert.Equal(new[] { 0, 0, 0 }, numbers);
+    }
+
+    // MergeIntervals tests
+    [Fact]
+    public void MergeIntervals_ShouldMergeOverlaps()
+    {
+        var input = new[]
+        {
+            new[] { 1, 3 },
+            new[] { 2, 6 },
+            new[] { 8, 10 },
+            new[] { 15, 18 }
+        };
+        var expected = new[]
+        {
+            new[] { 1, 6 },
+            new[] { 8, 10 },
+            new[] { 15, 18 }
+        };
+
+        var result = ArrayKata.MergeIntervals(input);
+        AssertIntervalsEqual(expected, result);
+    }
+
+    [Fact]
+    public void MergeIntervals_ShouldMergeTouchingIntervals()
+    {
+        var input = new[]
+        {
+            new[] { 1, 4 },
+            new[] { 4, 5 }
+        };
+        var expected = new[]
+        {
+            new[] { 1, 5 }
+        };
+
+        var result = ArrayKata.MergeIntervals(input);
+        AssertIntervalsEqual(expected, result);
+    }
+
+    [Fact]
+    public void MergeIntervals_ShouldHandleEmpty()
+    {
+        var result = ArrayKata.MergeIntervals(Array.Empty<int[]>());
+        AssertIntervalsEqual(Array.Empty<int[]>(), result);
+    }
+
+    [Fact]
+    public void MergeIntervals_ShouldHandleSingleInterval()
+    {
+        var input = new[]
+        {
+            new[] { 1, 2 }
+        };
+        var result = ArrayKata.MergeIntervals(input);
+        AssertIntervalsEqual(input, result);
+    }
+
+    private static void AssertIntervalsEqual(int[][] expected, int[][] actual)
+    {
+        Assert.Equal(expected.Length, actual.Length);
+        for (int i = 0; i < expected.Length; i++)
+        {
+            Assert.Equal(expected[i][0], actual[i][0]);
+            Assert.Equal(expected[i][1], actual[i][1]);
+        }
+    }
 }

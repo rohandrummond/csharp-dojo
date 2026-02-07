@@ -56,4 +56,40 @@ public class StringKataTests
     {
         Assert.Equal(expected, StringKata.ToTitleCase(input));
     }
+
+    // IsAnagram tests
+    [Theory]
+    [InlineData("Dormitory", "Dirty room", true)]
+    [InlineData("listen", "silent", true)]
+    [InlineData("hello", "bello", false)]
+    [InlineData("a", "A", true)]
+    [InlineData("", "", true)]
+    public void IsAnagram_ShouldDetectAnagrams(string first, string second, bool expected)
+    {
+        Assert.Equal(expected, StringKata.IsAnagram(first, second));
+    }
+
+    // FirstUniqueCharIndex tests
+    [Theory]
+    [InlineData("leetcode", 0)]
+    [InlineData("loveleetcode", 2)]
+    [InlineData("aabb", -1)]
+    [InlineData("", -1)]
+    [InlineData("aabbc", 4)]
+    public void FirstUniqueCharIndex_ShouldReturnCorrectIndex(string input, int expected)
+    {
+        Assert.Equal(expected, StringKata.FirstUniqueCharIndex(input));
+    }
+
+    // Compress tests
+    [Theory]
+    [InlineData("aabcccccaaa", "a2b1c5a3")]
+    [InlineData("abcdef", "abcdef")]
+    [InlineData("aabb", "aabb")]
+    [InlineData("aa", "aa")]
+    [InlineData("", "")]
+    public void Compress_ShouldCompressWhenShorter(string input, string expected)
+    {
+        Assert.Equal(expected, StringKata.Compress(input));
+    }
 }

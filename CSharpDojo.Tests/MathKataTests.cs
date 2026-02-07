@@ -67,4 +67,52 @@ public class MathKataTests
     {
         Assert.Equal(expected, MathKata.GCD(a, b));
     }
+
+    // PowFast tests
+    [Theory]
+    [InlineData(2, 10, 1024)]
+    [InlineData(5, 0, 1)]
+    [InlineData(3, 1, 3)]
+    [InlineData(2, 8, 256)]
+    public void PowFast_ShouldCalculateCorrectly(long baseValue, int exponent, long expected)
+    {
+        Assert.Equal(expected, MathKata.PowFast(baseValue, exponent));
+    }
+
+    [Fact]
+    public void PowFast_ShouldThrowForNegativeExponent()
+    {
+        Assert.Throws<ArgumentException>(() => MathKata.PowFast(2, -1));
+    }
+
+    // SqrtFloor tests
+    [Theory]
+    [InlineData(0, 0)]
+    [InlineData(1, 1)]
+    [InlineData(8, 2)]
+    [InlineData(9, 3)]
+    [InlineData(15, 3)]
+    [InlineData(16, 4)]
+    public void SqrtFloor_ShouldCalculateCorrectly(int number, int expected)
+    {
+        Assert.Equal(expected, MathKata.SqrtFloor(number));
+    }
+
+    [Fact]
+    public void SqrtFloor_ShouldThrowForNegative()
+    {
+        Assert.Throws<ArgumentException>(() => MathKata.SqrtFloor(-1));
+    }
+
+    // IsPerfectSquare tests
+    [Theory]
+    [InlineData(16, true)]
+    [InlineData(14, false)]
+    [InlineData(0, true)]
+    [InlineData(1, true)]
+    [InlineData(-4, false)]
+    public void IsPerfectSquare_ShouldIdentifySquares(int number, bool expected)
+    {
+        Assert.Equal(expected, MathKata.IsPerfectSquare(number));
+    }
 }

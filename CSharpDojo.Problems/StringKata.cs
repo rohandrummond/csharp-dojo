@@ -92,4 +92,34 @@ public static class StringKata
         }
         return sb.ToString();
     }
+
+    /// <summary>
+    /// Returns true if two strings are anagrams.
+    /// Ignore spaces and case.
+    /// Example: "Dormitory" and "Dirty room" -> true
+    /// </summary>
+    public static bool IsAnagram(string first, string second)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Returns the index of the first non-repeating character.
+    /// Returns -1 if none exists.
+    /// Example: "leetcode" -> 0, "loveleetcode" -> 2
+    /// </summary>
+    public static int FirstUniqueCharIndex(string input)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Compresses a string using counts of repeated characters.
+    /// Return original string if compressed string is not shorter.
+    /// Example: "aabcccccaaa" -> "a2b1c5a3"
+    /// </summary>
+    public static string Compress(string input)
+    {
+        throw new NotImplementedException();
+    }
 }

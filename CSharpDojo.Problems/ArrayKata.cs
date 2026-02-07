@@ -91,4 +91,33 @@ public static class ArrayKata
         }
         return null;
     }
+
+    /// <summary>
+    /// Returns the maximum sum of a contiguous subarray.
+    /// Throws ArgumentException if array is empty.
+    /// Example: [-2,1,-3,4,-1,2,1,-5,4] -> 6 (4,-1,2,1)
+    /// </summary>
+    public static int MaxSubarraySum(int[] numbers)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Moves all zeroes to the end of the array in-place.
+    /// Maintains the relative order of non-zero elements.
+    /// Example: [0,1,0,3,12] -> [1,3,12,0,0]
+    /// </summary>
+    public static void MoveZeroes(int[] numbers)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Merges overlapping intervals.
+    /// Example: [[1,3],[2,6],[8,10],[15,18]] -> [[1,6],[8,10],[15,18]]
+    /// </summary>
+    public static int[][] MergeIntervals(int[][] intervals)
+    {
+        throw new NotImplementedException();
+    }
 }

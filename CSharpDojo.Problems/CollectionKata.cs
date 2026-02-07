@@ -112,4 +112,33 @@ public static class CollectionKata
         result.IntersectWith(second);
         return result.ToList();
     }
+
+    /// <summary>
+    /// Returns the k most frequent elements.
+    /// If k <= 0, returns empty list.
+    /// Example: [1,1,1,2,2,3], k=2 -> [1,2]
+    /// </summary>
+    public static List<T> TopKFrequent<T>(IEnumerable<T> items, int k) where T : notnull
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Groups words that are anagrams of each other (case-insensitive).
+    /// Keys should be the sorted lowercase characters of the word.
+    /// Example: ["eat","Tea","tan"] -> { "aet": ["eat","Tea"], "ant": ["tan"] }
+    /// </summary>
+    public static Dictionary<string, List<string>> GroupAnagrams(IEnumerable<string> words)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Returns the length of the longest consecutive sequence.
+    /// Example: [100,4,200,1,3,2] -> 4 (1,2,3,4)
+    /// </summary>
+    public static int LongestConsecutive(IEnumerable<int> numbers)
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -108,4 +108,33 @@ public static class MathKata
         }
         return GCD(b, a % b);
     }
+
+    /// <summary>
+    /// Returns baseValue raised to exponent using fast exponentiation.
+    /// Throws ArgumentException for negative exponent.
+    /// Example: PowFast(2, 10) -> 1024
+    /// </summary>
+    public static long PowFast(long baseValue, int exponent)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Returns the floor of the square root of a non-negative integer.
+    /// Throws ArgumentException for negative numbers.
+    /// Example: 8 -> 2, 9 -> 3
+    /// </summary>
+    public static int SqrtFloor(int number)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Returns true if the number is a perfect square.
+    /// Example: 16 -> true, 14 -> false
+    /// </summary>
+    public static bool IsPerfectSquare(int number)
+    {
+        throw new NotImplementedException();
+    }
 }
