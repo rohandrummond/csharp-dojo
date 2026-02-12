@@ -100,7 +100,32 @@ public static class StringKata
     /// </summary>
     public static bool IsAnagram(string first, string second)
     {
-        throw new NotImplementedException();
+        first = first.Replace(" ", "").ToLower();
+        second = second.Replace(" ", "").ToLower();
+
+        Dictionary<char, int> counts = [];
+
+        foreach (char c in first)
+        {
+            counts.TryGetValue(c, out int count);
+            counts[c] = count + 1;    
+        }
+
+        foreach (char c in second)
+        {
+            counts.TryGetValue(c, out int count);
+            counts[c] = count - 1;   
+        }
+
+        foreach (KeyValuePair<char, int> pair in counts)
+        {
+            if (pair.Value != 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /// <summary>
