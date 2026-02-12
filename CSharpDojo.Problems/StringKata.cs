@@ -102,21 +102,17 @@ public static class StringKata
     {
         first = first.Replace(" ", "").ToLower();
         second = second.Replace(" ", "").ToLower();
-
         Dictionary<char, int> counts = [];
-
         foreach (char c in first)
         {
             counts.TryGetValue(c, out int count);
             counts[c] = count + 1;    
         }
-
         foreach (char c in second)
         {
             counts.TryGetValue(c, out int count);
             counts[c] = count - 1;   
         }
-
         foreach (KeyValuePair<char, int> pair in counts)
         {
             if (pair.Value != 0)
@@ -124,7 +120,6 @@ public static class StringKata
                 return false;
             }
         }
-
         return true;
     }
 
@@ -135,7 +130,22 @@ public static class StringKata
     /// </summary>
     public static int FirstUniqueCharIndex(string input)
     {
-        throw new NotImplementedException();
+        int[] charCounts = new int[26];
+        int n = input.Length;
+        // Track counts in array by mapping lowercase chars to 0 based indexing
+        for (int i = 0; i < n; i++)
+        {
+            charCounts[input[i] - 'a']++;
+        }
+        // Return index of first element in string with a count of 1
+        for (int i = 0; i < n; i++)
+        {
+            if (charCounts[input[i] - 'a'] == 1)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /// <summary>
