@@ -1,3 +1,4 @@
+using System.IO.Pipelines;
 using System.Text;
 
 namespace CSharpDojo.Problems;
@@ -155,6 +156,46 @@ public static class StringKata
     /// </summary>
     public static string Compress(string input)
     {
-        throw new NotImplementedException();
+
+        int n = input.Length;
+        if (n < 1)
+        {
+            return input;
+        }
+
+        char current = input[0];
+        int count = 1;
+        var result = new StringBuilder(current.ToString());
+
+        for (int i = 1; i < n; i++)
+        {
+            char letter = input[i];
+            bool isLast = i == n - 1;
+
+            if (letter != current)
+            {
+                result.Append(count);
+                result.Append(letter);
+                current = letter;
+                count = 1;
+
+                if (isLast)
+                {
+                    result.Append(count);
+                }
+
+                continue;
+            }
+
+            count++;
+
+            if (isLast)
+            {
+                result.Append(count);
+            }
+
+        }
+
+        return result.Length < n ? result.ToString() : input;
     }
 }
